@@ -4,7 +4,10 @@
   "description": "Blog website for students to post and comment on their coding journey.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/index.js",
+    "watch": "nodemon server.js"
   },
   "author": "LWSE13",
   "license": "ISC",
