@@ -11,7 +11,11 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id']
+                    attributes: ['content', 'date_created'],
+                    include: {
+                        model: User,
+                        attributes: ['name']
+                    }
                 }
             ]
         });
@@ -21,3 +25,5 @@ router.get('/', async (req, res) => {
         res.status(500).json({message: 'Failed to get posts', error: err});
     }
 })
+
+module.exports = router;
