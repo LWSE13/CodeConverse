@@ -1,13 +1,140 @@
+:root {
+    --pri-colour: #ddf0f9;
+    --sec-colour: #32647A;
+    --ter-colour: #133D50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
-    display: flex;
-    justify-content: space-between; 
+    display: flex; 
     align-items: center; 
-    background-color: #D2B48C; 
+    background-color: var(--sec-colour); 
     padding: 15px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+button {
+    background-color: var(--ter-colour);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--pri-colour);
+    color: var(--ter-colour);
+}
+
+.logo-container {
+    width: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cc-logo {
+    width: 47px;
+    margin-bottom: 5px;
+}
+
+.cc-text {
+    color: var(--pri-colour);
+}
+
+nav {
+    display: flex;
+    margin-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 10px;
+
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.header-login {
+    display: flex;
+    justify-content: flex-end;
+    width: 93%;
+}
+
+.decorative-line {
+    width: 100%;
+    height: 6px;
+    background-color: var(--ter-colour);
+}
+
+body {
+    background-color: var(--pri-colour);
+}
+
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: content-box;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    text-align: end;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 footer {
-    background-color: #D2B48C; 
+    background-color: var(--sec-colour); 
     color: #fff; 
-    padding: 20px; 
+    padding: 20px;
+    flex-shrink: 0;
 }

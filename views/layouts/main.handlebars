@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="/css/jass.css"/>
 </head>
 <header> 
+    <div class="logo-container">
+        <img class="cc-logo" src="images/CodeConverse-logo.png" alt="">
+        <h4 class="cc-text" >Code Converse</h3>
+    </div>
+            <nav>
+            <ul>
+                <li><a class="nav-link" href="/">Home</a></li>
+                <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
         {{#if loggedIn}}
         <div class="header-login">
             <h5>Logged In As: {{name}}</h2>
@@ -22,26 +32,21 @@
                 </a>
         </div>
         {{/if}}
-
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/dashboard">Dashboard</a></li>
-            </ul>
     </header>
+    <div class="decorative-line"></div>
 
 <main>
     {{{body}}}
 </main>
-
+    <div class="decorative-line"></div>
         <footer>
     <div class="footer-container">
         <div class="useful-fields">
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a class="nav-link" href="#">About Us</a></li>
+                <li><a class="nav-link" href="#">Contact Us</a></li>
+                <li><a class="nav-link" href="#">Terms of Service</a></li>
+                <li><a class="nav-link" href="#">Privacy Policy</a></li>
             </ul>
         </div>
     </div>
