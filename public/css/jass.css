@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #D2B48C; 
+    padding: 15px;
+}
+
+footer {
+    background-color: #D2B48C; 
+    color: #fff; 
+    padding: 20px; 
+}

@@ -1,0 +1,29 @@
+
+<body>
+    <div class="container">
+       
+        <div class="text-container">
+    {{#if loggedIn}}
+        <div>
+<form action="/search" method="GET">
+    <input type="text" name="productSearch" placeholder="Search products">
+    <button type="submit">Search</button>
+</form>
+
+        </div>
+    {{else}}
+<            <h2>Welcome to Beefy Stock</h2>
+            <p>Keep track of stock levels with Beefy Stock's inventory control system, which populates invoices and orders with items you buy and sell.</p>
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login">Log In</button>
+                </a>
+                <button class="signup">See Our Plans</button>
+            </div>>
+     {{/if}}    
+        </div>
+        <div class="image-container">
+            <img src="/images/img-2_720.png" alt="Image">
+        </div>
+    </div>
+</body>
