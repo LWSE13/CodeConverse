@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Converse</title>
     <link rel="stylesheet" href="/css/jass.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
 </head>
 <header> 
     <div class="logo-container">
@@ -19,7 +20,7 @@
         </nav>
         {{#if loggedIn}}
         <div class="header-login">
-            <h5>Logged In As: {{name}}</h2>
+            <h5>Logged In As: {{username}}</h2>
                     <button class="logout" id="logout">Log Out</button>
         </div>  
         {{else}}
