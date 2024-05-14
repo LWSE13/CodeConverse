@@ -23,7 +23,14 @@ const sess = {
 };
 app.use(session(sess));
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create(); // Initialize handlebars engine
+const hbs = exphbs.create({
+  helpers: {
+    formatDate: function (date) {
+      let options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString(undefined, options);
+    }
+  }
+});
 
 app.engine('handlebars', hbs.engine); // Use handlebars engine
 
