@@ -12,8 +12,6 @@
 
         </div>
     {{else}}
-<            <h2>Welcome to Beefy Stock</h2>
-            <p>Keep track of stock levels with Beefy Stock's inventory control system, which populates invoices and orders with items you buy and sell.</p>
             <div class="button-container">
                 <a href="/login">
                     <button class="login">Log In</button>
@@ -21,9 +19,19 @@
                 <button class="signup">See Our Plans</button>
             </div>>
      {{/if}}    
-        </div>
-        <div class="image-container">
-            <img src="/images/img-2_720.png" alt="Image">
-        </div>
+{{#each posts}}
+    <div class="post">
+        <h2>{{this.title}}</h2>
+        <p>{{this.content}}</p>
+        <p>Posted by: {{this.user.name}}</p>
+        <p>Posted on: {{this.date_created}}</p>
+        {{#each this.comments}}
+            <div class="comment">
+                <p>{{this.content}}</p>
+                <p>Comment by: {{this.user.name}}</p>
+                <p>Commented on: {{this.date_created}}</p>
+            </div>
+        {{/each}}
     </div>
+{{/each}}
 </body>
