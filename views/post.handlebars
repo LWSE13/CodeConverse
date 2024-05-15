@@ -23,6 +23,7 @@
                 <div id="comment-form-container">
                     <form action="/api/comments" method="POST" class="comment-form">
                         <input type="hidden" name="post_id" value="{{post.id}}">
+                        <input type="hidden" name="user_id" value="{{user_id}}">
                         <textarea class="comment-input" name="content" id="comment" ></textarea>
                         <div id="comment-button-container">
                         <button id="comment-form-button" type="submit">Comment</button>

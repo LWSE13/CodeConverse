@@ -36,14 +36,14 @@ router.get('/', async (req, res) => {
         include: [
           {
             model: User,
-            attributes: ['name']
+            attributes: ['name',]
           },
           {
             model: Comment,
             attributes: ['content', 'date_created'],
             include: {
               model: User,
-              attributes: ['name']
+              attributes: ['name',]
             }
           }
         ]
@@ -54,10 +54,12 @@ router.get('/', async (req, res) => {
         return;
       } else {
         const postData = post.get({ plain: true });
+        console.log(postData);
         res.render('post',{
           post: postData,
           loggedIn: req.session.loggedIn,
-          name: req.session.name
+          name: req.session.name,
+          user_id: req.session.user_id
         });
       }
     } catch (err) {
