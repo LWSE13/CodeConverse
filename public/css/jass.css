@@ -89,6 +89,12 @@ nav ul li {
     width: 93%;
 }
 
+.logged-in {
+    color: #fff;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
 .decorative-line {
     width: 100%;
     height: 6px;

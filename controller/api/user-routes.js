@@ -1,8 +1,21 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/', async (req, res) => {
+  try {
+    const dbUserData = await User.findAll({
+      attributes: { exclude: ['password'] },
+    });
+
+    res.json(dbUserData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // CREATE new user
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const dbUserData = await User.create({
       name: req.body.name,
@@ -13,7 +26,8 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.name = req.body.name; 
-      res.render('products');
+      console.log(req.session);
+      res.redirect('/');
     });
   } catch (err) {
     console.log(err);
@@ -55,6 +69,7 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
+      res.redirect('/login');
       res.status(204).end();
     });
   } else {
