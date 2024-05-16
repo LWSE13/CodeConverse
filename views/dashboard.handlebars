@@ -1,0 +1,28 @@
+ <div id="dashboard-header">
+    <h1>Your Posts</h1>
+    <button id="new-post-button">New Post</button>
+ </div>
+ <div class="post-container">
+        {{#each posts}}
+            <div class="post">
+                <div class="post-header">
+                    <a class="no-text-dec" href="/post/{{this.id}}"><h2>{{this.title}}</h2></a>
+                    <div class="post-author">
+                        <p>Posted by: {{this.user.name}}</p>
+                    </div>
+                </div>
+
+                <div class="post-heading-line"></div>
+                <p>{{this.content}}</p>
+                <p>Posted on: {{formatDate this.date_created}}</p>
+                <h3 class="comment-header" >Comments</h3>
+
+                {{#each this.comments}}
+                    <div class="comment">
+                        <h4>{{this.user.name}}</h4>
+                        <p>{{this.content}}</p>
+                        <p>{{formatDate this.date_created}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
