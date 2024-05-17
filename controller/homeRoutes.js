@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/dashboard', async (req, res) => {
+  router.get('/dashboard', withAuth, async (req, res) => {
     console.log(req.session);
     console.log(req.session.user_id);
     try {
@@ -128,4 +128,27 @@ router.get('/', async (req, res) => {
     }
     res.render('signup');
   });
+
+  router.get('/newpost', withAuth, async (req, res) => {
+    try {
+    res.render('newpost', {loggedIn: req.session.loggedIn, name: req.session.name});
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+router.post('/posts', async (req, res) => {
+    try {
+      const postData = await Post.create({
+        title: req.body.title,
+        content: req.body.content,
+        author: req.session.user_id
+      });
+
+      res.redirect('/dashboard');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+})
+
   module.exports = router;

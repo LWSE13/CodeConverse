@@ -139,6 +139,11 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#new-post-button {
+    margin-top: 10px;
+    text-decoration: none;
+}
+
 #comment-button-container {
     display: flex;
     justify-content: center;
