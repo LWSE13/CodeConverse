@@ -129,9 +129,9 @@ router.get('/', async (req, res) => {
     res.render('signup');
   });
 
-  router.get('/newpost', withAuth, async (req, res) => {
+  router.get('/postnew', withAuth, async (req, res) => {
     try {
-    res.render('newpost', {loggedIn: req.session.loggedIn, name: req.session.name});
+    res.render('postnew', {loggedIn: req.session.loggedIn, name: req.session.name});
     } catch (err) {
       console.error(err);
       res.status(500).json(err);
