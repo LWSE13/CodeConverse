@@ -133,6 +133,7 @@ router.get('/', async (req, res) => {
     try {
     res.render('newpost', {loggedIn: req.session.loggedIn, name: req.session.name});
     } catch (err) {
+      console.error(err);
       res.status(500).json(err);
     }
 });
