@@ -9,7 +9,7 @@ This project gave me the most bugs I have had in any (hairs were lost). My most 
 
 
 ## Installation
-Visit the link here to view my website: [https://beefy-stock.onrender.com/](https://codeconverse.onrender.com/)
+Visit the link here to view my website: https://codeconverse.onrender.com/
 
 Sometimes the link may not work as I use the database for another project. In this case the repo is able to be cloned and a postgres database created. You can find the commands for seeding the database and running the server within the package.json file
 
