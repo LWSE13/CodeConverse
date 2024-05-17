@@ -151,4 +151,41 @@ router.post('/posts', async (req, res) => {
     }
 })
 
+router.get('/userPost/:id', withAuth, async (req, res) => {
+  try {
+    const post = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name',]
+        },
+        {
+          model: Comment,
+          attributes: ['content', 'date_created'],
+          include: {
+            model: User,
+            attributes: ['name',]
+          }
+        }
+      ]
+    });
+
+    if (!post) {
+      res.status(404).json({message: 'No post found with this id'});
+      return;
+    } else {
+      const postData = post.get({ plain: true });
+      console.log(postData);
+      res.render('userPost',{
+        post: postData,
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        user_id: req.session.user_id
+      });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
   module.exports = router;

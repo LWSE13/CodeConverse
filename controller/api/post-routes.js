@@ -68,6 +68,28 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.put('/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+
+        if (!postData) {
+            res.status(404).json({message: 'No post found with this id'});
+            return;
+        }
+
+        await Post.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+
+        res.status(200).json(`Record updated successfully!`);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: 'An error occurred while updating the Post', error: err.message});
+    }
+});
+
 router.delete('/:id', async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id);
