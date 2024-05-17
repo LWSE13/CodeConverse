@@ -99,7 +99,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.post('/comments', async (req, res) => {
+  router.post('/comments', withAuth, async (req, res) => {
     try {
         req.body.user_id = req.session.user_id;
         const commentData = await Comment.create(req.body);
@@ -137,7 +137,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/posts', async (req, res) => {
+router.post('/posts', withAuth, async (req, res) => {
     try {
       const postData = await Post.create({
         title: req.body.title,
